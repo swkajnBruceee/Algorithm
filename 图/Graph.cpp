@@ -3,6 +3,21 @@
 #include<vector>
 using namespace std;
 
+struct Node;
+
+struct Edge
+{
+    int weight;  // 权值(距离)
+    Node* fromNode;
+    Node* toNode;
+    Edge(int weight, Node* fromNode, Node* toNode)
+    {
+        this->weight = weight;
+        this->fromNode = fromNode;
+        this->toNode = toNode;
+    }
+};
+
 struct Node
 {
     int value;
@@ -19,27 +34,20 @@ struct Node
     }
 };
 
-struct Edge
-{
-    int weight;  // 权值(距离)
-    Node* fromNode;
-    Node* toNode;
-    Edge(int weight, Node* fromNode, Node* toNode)
-    {
-        this->weight = weight;
-        this->fromNode = fromNode;
-        this->toNode = toNode;
-    }
-};
+
 
 struct Graph
 {
     unordered_map<int,Node> nodes;  // 点集
-    vector<Edge> edges;      // 边集
-    Graph()
-    {
-        nodes = unordered_map<int,Node>();
-        edges = vector<Edge>();
+    vector<Edge*> edges;      // 边集
+
+    // 添加析构函数
+    ~Graph() {
+        // 释放所有Edge对象
+        for (Edge* edge : edges) {
+            delete edge;
+        }
+        edges.clear();  // 清空指针（非必须）
     }
 };
 

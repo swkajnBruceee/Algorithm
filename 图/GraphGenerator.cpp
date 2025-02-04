@@ -22,11 +22,11 @@ Graph createGraph(int** matrix, int rowCount) {
         }
         Node* fromNode = &graph.nodes[from];
         Node* toNode = &graph.nodes[to];
-        Edge newEdge(weight, fromNode, toNode);
+        Edge* newEdge = new Edge(weight, fromNode, toNode);
         fromNode->nexts.push_back(toNode);
         fromNode->out++;
         toNode->in++;
-        fromNode->edges.push_back(&newEdge);
+        fromNode->edges.push_back(newEdge);
         graph.edges.push_back(newEdge);
     }
     return graph;
