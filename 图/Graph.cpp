@@ -1,6 +1,5 @@
 // 图的基础模型
 #include<unordered_map>
-#include<unordered_set>
 #include<vector>
 using namespace std;
 
@@ -23,24 +22,24 @@ struct Node
 struct Edge
 {
     int weight;  // 权值(距离)
-    Node* from;
-    Node* to;
-    Edge(int weight, Node* from, Node* to)
+    Node* fromNode;
+    Node* toNode;
+    Edge(int weight, Node* fromNode, Node* toNode)
     {
         this->weight = weight;
-        this->from = from;
-        this->to = to;
+        this->fromNode = fromNode;
+        this->toNode = toNode;
     }
 };
 
 struct Graph
 {
-    unordered_map<int,Node*> nodes;  // 点集
-    unordered_set<Edge*> edges;      // 边集
+    unordered_map<int,Node> nodes;  // 点集
+    vector<Edge> edges;      // 边集
     Graph()
     {
-        nodes = unordered_map<int,Node*>();
-        edges = unordered_set<Edge*>();
+        nodes = unordered_map<int,Node>();
+        edges = vector<Edge>();
     }
 };
 
