@@ -5,6 +5,7 @@
         "ios": "cpp",
         "unordered_map": "cpp",
         "xstring": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "unordered_set": "cpp"
     }
 }
