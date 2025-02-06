@@ -33,6 +33,7 @@ struct Trie
         root = new TrieNode();
     }
 
+    // 加入一个字符串
     void insert(string word)
     {
         if(word.empty()) return;
@@ -49,6 +50,58 @@ struct Trie
         }
         node->end++;
     }
+
+    
+    // word这个单词之前加入过几次
+    int search(string word)
+    {
+        if(word.empty()) return 0;
+        TrieNode* node = root;
+        for(char c : word)
+        {
+            int index = c - 'a';
+            if (node->nexts[index] == nullptr) 
+            {
+                return 0;
+            }
+            node = node->nexts[index];
+        }
+        return node->end;
+    }
+
+    // 所有加入的字符串中，有几个是以pre这个字符串作为前缀的
+    int prefixNumber(string pre)
+    {
+        if(pre.empty()) return 0;
+        TrieNode* node = root;
+        for(char c : pre)
+        {
+            int index = c - 'a';
+            if (node->nexts[index] == nullptr) 
+            {
+                return 0;
+            }
+            node = node->nexts[index];
+        }
+        return node->pass;
+    }
+
+    // 删除字符串
+    void myDelete(string word)
+    {
+        if(search(word) != 0)  // 确定树中确实加入过word,才删除
+        {
+            TrieNode* node = root;
+            node->pass--;
+            for(char c : word)
+            {
+                int index = c - 'a';
+                node = node->nexts[index];
+            }
+            node->end--;
+        }
+    }
+
 };
 
 
@@ -57,7 +110,6 @@ int main()
 
     return 0;
 }
-
 
 
 
