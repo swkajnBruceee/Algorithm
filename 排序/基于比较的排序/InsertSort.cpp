@@ -1,6 +1,8 @@
+// 插入排序
+// 时间复杂度：O(N^2)
+// 额外空间复杂度：O(1)
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 void insertionSort(vector<int>& arr) {
