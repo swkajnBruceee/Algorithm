@@ -7,7 +7,7 @@
   金条要分成10.20，30三个部分。如果先把长度60的金条分成10和50，花费60；
   再把长度50的金条分成20和30，花费50；一共花费110铜板。
   但是如果先把长度60的金条分成30和30，花费60；再把长度30金条分成10和20，花费30；一共花费90铜板。
-  输入一个数组，返回分割的最小代价。
+  输入一个数组，返回分割的最小代价。(LeeetCode_1547)
 */
 #include<iostream>
 #include<vector>
@@ -42,7 +42,7 @@ int lessMoney(vector<int>& arr)
 
 int main()
 {
-    vector<int> arr = {2,3,4,7,9,2};
+    vector<int> arr = {1,1,5,1,1,1};
     cout<<lessMoney(arr);
     return 0;
 }
