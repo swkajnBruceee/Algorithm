@@ -67,3 +67,4 @@ int multiKnapsack(int N, int V, vector<int>& v, vector<int>& w, vector<int>& s) 
 
     return prev_dp[V];
 }
+
