@@ -21,7 +21,7 @@ void preOrderRecur(treeNode* root)
 
 }
 
-// 先序遍历（头、左、右）- 非递归
+// 先序遍历（头、右、左）- 非递归
 void preOrderUnRecur(treeNode* head)
 {
     if(head != nullptr)
